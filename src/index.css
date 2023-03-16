@@ -11,3 +11,24 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+:root {
+    --primary-color: #091336;
+    --light-font-color: rgba(255, 255, 255, 0.6);
+    --darck-font-color: #122945;
+    --head-of-table-color: #899CB1;
+    --main-background: #EAF0FA;
+    --call-list-background: #FFFFFF;
+   }
+
+   @font-face {
+    font-family: 'SF Pro Display';
+    src: local('SfProScript'),
+      url('./fonts/SF-Pro-Display-Regular.otf') format('truetype');
+    font-weight: normal;
+  }
+
+  .font-sf-pro {
+    font-family: 'SF Pro Display';
+  }

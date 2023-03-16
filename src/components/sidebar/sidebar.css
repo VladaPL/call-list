@@ -1,0 +1,11 @@
+.sidebar {
+    width: 240px;
+    min-height: 100vh;
+    height: 963px;
+    background-color: var(--primary-color);
+
+}
+
+.sidebar__item {
+    color: var(--light-font-color);
+}
