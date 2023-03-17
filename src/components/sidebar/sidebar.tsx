@@ -60,19 +60,25 @@ const Sidebar = () => {
         <aside className="sidebar">
             <nav className="sidebar__wrapper">
                 <Logo/>
-                <ul className="sidebar__list">
+                <nav className="sidebar__list">
 
                     {sidebarText.map((item) => {
                         //let indexOfItem = sidebarText.indexOf(item);
 
                         return (
-                            <li className="sidebar__item" key={item}>
-                                <div className="sidebar__icon" style={{backgroundImage: `url(${sidebarIconsObj[0]})`}}></div>
-                                <div>{item}</div>
-                            </li>);
+                            <div className={`sidebar__item-wrapper ${item === "Звонки" ? ` sidebar__item-active` : ``}`} key={item}>
+                                {item === "Звонки" ? <div className="sidebar__active-mark-before"></div> : null}
+
+                                <div className="sidebar__item"> 
+                                    <div className="sidebar__icon" style={{backgroundImage: `url(${sidebarIconsObj[3]})`}}></div>
+                                    <div>{item}</div>
+                                </div>
+
+                                {item === "Звонки" ? <div className="sidebar__active-mark-after"></div> : null}
+                            </div>);
                     })}
 
-                </ul>
+                </nav>
             </nav>
         </aside>
     );
