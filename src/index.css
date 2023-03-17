@@ -7,10 +7,17 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
+@font-face {
+    font-family: 'SF Pro Display';
+    src: local('SfProScript'),
+      url('./fonts/SF-Pro-Display-Regular.otf') format('truetype');
+    font-weight: normal;
+  }
+
+  .font-sf-pro {
+    font-family: 'SF Pro Display';
+  }
+
 
 
 :root {
@@ -21,14 +28,3 @@ code {
     --main-background: #EAF0FA;
     --call-list-background: #FFFFFF;
    }
-
-   @font-face {
-    font-family: 'SF Pro Display';
-    src: local('SfProScript'),
-      url('./fonts/SF-Pro-Display-Regular.otf') format('truetype');
-    font-weight: normal;
-  }
-
-  .font-sf-pro {
-    font-family: 'SF Pro Display';
-  }

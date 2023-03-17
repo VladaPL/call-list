@@ -6,6 +6,28 @@
 
 }
 
+.sidebar__wrapper {
+    margin: 20px 0 20px 12px;
+}
+
+.logo_wrapper {
+    margin-left: 10px;
+    margin-bottom: 32px;
+}
+
+.sidebar__list {
+    padding: 0;
+}
 .sidebar__item {
+    display: grid;
+    grid-template-columns: 25px 100px;
+    gap: 12px;
+    padding: 14px;
     color: var(--light-font-color);
+    list-style-type: none;
+}
+
+.sidebar__icon {
+    width: 24px;
+    height: 24px;
 }
