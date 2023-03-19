@@ -64,14 +64,22 @@ const Sidebar = () => {
 
                     {sidebarText.map((item) => {
                         //let indexOfItem = sidebarText.indexOf(item);
+                        //let icon = '';
 
                         return (
                             <div className={`sidebar__item-wrapper ${item === "Звонки" ? ` sidebar__item-active` : ``}`} key={item}>
                                 {item === "Звонки" ? <div className="sidebar__active-mark-before"></div> : null}
+                                {/* {
+                                    switch(item) {
+                                      case 'Итоги':
+                                        icon = sidebarIconsObj[0];
+                                        return icon;
+                                    }
+                                } */}
 
                                 <div className="sidebar__item"> 
-                                    <div className="sidebar__icon" style={{backgroundImage: `url(${sidebarIconsObj[3]})`}}></div>
-                                    <div>{item}</div>
+                                    <div className="sidebar__icon" style={{backgroundImage: `url(${sidebarIconsObj[1]})`}}></div>
+                                    <div className="sidebar__text">{item}</div>
                                 </div>
 
                                 {item === "Звонки" ? <div className="sidebar__active-mark-after"></div> : null}
