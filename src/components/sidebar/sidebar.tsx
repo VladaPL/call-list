@@ -1,5 +1,6 @@
-import React, {Component} from "react";
+import React from "react";
 import './sidebar.css';
+
 import logoImage from '../../assets/images/logo.png';
 
 import chartIcon from '../../assets/images/sidebar-svg/chart-timeline-variant.svg'
@@ -12,6 +13,7 @@ import permIcon from '../../assets/images/sidebar-svg/perm_identity_black_24dp.s
 import briefcaseIcon from '../../assets/images/sidebar-svg/briefcase-outline.svg';
 import libraryIcon from '../../assets/images/sidebar-svg/local_library_black_24dp.svg';
 import settingsIcon from '../../assets/images/sidebar-svg/settings-24px.svg';
+
 
 const sidebarIconsObj = {
     0: chartIcon,
@@ -26,7 +28,7 @@ const sidebarIconsObj = {
     9: settingsIcon
 };
 
-const sidebarText = ['Итоги', 'Заказы', 'Собщения', 'Звонки', 'Контрагенты', 'Документы', 'Исполнители','Отчеты','База знаний', 'Настройки'];
+const sidebarText = ['Итоги', 'Заказы', 'Сообщения', 'Звонки', 'Контрагенты', 'Документы', 'Исполнители','Отчеты','База знаний', 'Настройки'];
 
 
 type LogoState = {
@@ -34,7 +36,7 @@ type LogoState = {
     logoImage: string;
 };
 
-class Logo extends Component<{}, LogoState> {
+class Logo extends React.Component<{}, LogoState> {
 
     state: LogoState = {
         active: false,
@@ -53,43 +55,73 @@ class Logo extends Component<{}, LogoState> {
 }
 
 
+export default class Sidebar extends React.Component {
 
-const Sidebar = () => {
+    addIcon = (text: string) => {
+        let icon: string = '';
+            switch(text) {
+                case 'Итоги':
+                    icon = sidebarIconsObj[0];
+                    break;
+                case 'Заказы':
+                    icon = sidebarIconsObj[1];
+                    break;
+                case 'Сообщения':
+                    icon = sidebarIconsObj[2];
+                    break;
+                case 'Звонки':
+                    icon = sidebarIconsObj[3];
+                    break;
+                case 'Контрагенты':
+                    icon = sidebarIconsObj[4];
+                    break;
+                case 'Документы':
+                    icon = sidebarIconsObj[5];
+                    break;
+                case 'Исполнители':
+                    icon = sidebarIconsObj[6];
+                    break;
+                case 'Отчеты':
+                    icon = sidebarIconsObj[7];
+                    break;
+                case 'База знаний':
+                    icon = sidebarIconsObj[8];
+                    break;
+                case 'Настройки':
+                    icon = sidebarIconsObj[9];
+                    break;
+            }
+        return icon;
+    };
 
-    return (
-        <aside className="sidebar">
-            <nav className="sidebar__wrapper">
-                <Logo/>
-                <nav className="sidebar__list">
+    
+    render() {
 
-                    {sidebarText.map((item) => {
-                        //let indexOfItem = sidebarText.indexOf(item);
-                        //let icon = '';
-
-                        return (
-                            <div className={`sidebar__item-wrapper ${item === "Звонки" ? ` sidebar__item-active` : ``}`} key={item}>
-                                {item === "Звонки" ? <div className="sidebar__active-mark-before"></div> : null}
-                                {/* {
-                                    switch(item) {
-                                      case 'Итоги':
-                                        icon = sidebarIconsObj[0];
-                                        return icon;
-                                    }
-                                } */}
-
-                                <div className="sidebar__item"> 
-                                    <div className="sidebar__icon" style={{backgroundImage: `url(${sidebarIconsObj[1]})`}}></div>
-                                    <div className="sidebar__text">{item}</div>
-                                </div>
-
-                                {item === "Звонки" ? <div className="sidebar__active-mark-after"></div> : null}
-                            </div>);
-                    })}
-
+        return (
+            <aside className="sidebar">
+                <nav className="sidebar__wrapper">
+                    <Logo/>
+                    <nav className="sidebar__list">
+    
+                        {sidebarText.map((item) => {
+    
+                            return (
+    
+                                <div className={`sidebar__item-wrapper ${item === "Звонки" ? ` sidebar__item-active` : ``}`} key={item}>
+                                    {item === "Звонки" ? <div className="sidebar__active-mark-before"></div> : null}
+                                    <div className="sidebar__item">
+                                        
+                                        <div className="sidebar__icon" style={{backgroundImage: `url(${this.addIcon(item)})`}}></div>
+                                        <div className="sidebar__text">{item}</div>
+                                    </div>
+    
+                                    {item === "Звонки" ? <div className="sidebar__active-mark-after"></div> : null}
+                                </div>);
+                        })}
+    
+                    </nav>
                 </nav>
-            </nav>
-        </aside>
-    );
-};
-
-export default Sidebar;
+            </aside>
+        );
+    }
+}
